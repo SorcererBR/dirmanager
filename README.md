@@ -12,5 +12,8 @@ v1.0
 v1.1 
 * Construido algoritmo para listagem de arquivos 
 
-V1.2 (atual)
+v1.2
 * Reparado bug no qual considerava diretorio como arquivo em certas ocasiões
+
+v1.3 (atual)
+* Resumido codigo e tabulaçoes estão mais alinhadas

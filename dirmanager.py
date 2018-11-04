@@ -3,25 +3,20 @@ import os
 dir_list = ['2017','2018','2019']
 active_dir = os.getcwd()
 
-def listarDiretorios(pasta):
-  tabs_count = len(os.getcwd().split(os.path.sep)) - len(active_dir.split(os.path.sep))
-  tabmsg = '\t' * tabs_count  
-  if pasta != '':
-    print('%s%s - Diretorio' %(tabmsg,pasta))
-    os.chdir(pasta)
-    tabmsg += '\t'
-
-  this_dir = os.getcwd()
-
-  if os.listdir():
-    for arquivo in os.listdir():
+def listarDiretorios(ls, tabcount):
+  if ls:
+    for arquivo in ls:
       if os.path.isdir(arquivo):
-        listarDiretorios(arquivo)
+        print('%s%s - Diretorio' %(('\t' * tabcount),arquivo))
+        os.chdir(arquivo)
+        listarDiretorios(os.listdir(), (tabcount+1))
       else:
-        print('%s%s' %(tabmsg,arquivo))
-  os.chdir('..')
+        print('%s%s' %('\t' * tabcount,arquivo))
+    os.chdir('..')
+  else:
+    os.chdir('..')
 
-listarDiretorios('')
+listarDiretorios(os.listdir(),1)
 
 def criarSubPastas(pastas):
   your_dir = os.getcwd()
