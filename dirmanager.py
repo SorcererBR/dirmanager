@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import os
-
 dir_list = ['2017','2018','2019']
 active_dir = os.getcwd()
 
@@ -20,8 +19,7 @@ def listarDiretorios(pasta):
         listarDiretorios(arquivo)
       else:
         print('%s%s' %(tabmsg,arquivo))
-  else:
-    os.chdir('..')
+  os.chdir('..')
 
 listarDiretorios('')
 
